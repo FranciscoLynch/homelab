@@ -1,0 +1,7 @@
+[servers-control]
+main-server
+
+[servers] 
+server-a
+server-b
+server-c

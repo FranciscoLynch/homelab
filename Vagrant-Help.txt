@@ -1,0 +1,65 @@
+==Instalar el plugin de proxy solo si estamos detras de un proxy==
+ # vagrant plugin install vagrant-proxyconf
+
+==Arrancar, parar y ver el estado de las maquinas virtuales==
+ # vagrant up
+ # vagrant halt
+ # vagrant status
+
+ # vagrant up main-server
+ # vagrant up server-a
+ # vagrant up server-b
+ # vagrant up server-c
+
+ # vagrant halt main-server
+ # vagrant halt server-a 
+ # vagrant halt server-b 
+ # vagrant halt server-c 
+
+==Eliminar las maquinas==
+ # vagrant destroy -f
+
+==Conexion via SSH a las maquinas==
+ # vagrant ssh main-server
+ # vagrant ssh server-a
+ # vagrant ssh server-b
+ # vagrant ssh server-c
+
+==Conexion via SSH a las maquinas con un cliente tipo Putty==
+ # Hostname: main-server
+ # IP      : 172.16.1.50
+ # Usuario : root
+ # Passwod : vagrant
+
+ # Hostname: server-a
+ # IP      : 172.16.1.51
+ # Usuario : root
+ # Passwod : vagrant
+
+ # Hostname: server-b
+ # IP      : 172.16.1.52
+ # Usuario : root
+ # Passwod : vagrant 
+
+ # Hostname: server-c
+ # IP      : 172.16.1.53
+ # Usuario : root
+ # Passwod : vagrant
+
+ # ssh -o "StrictHostKeyChecking no" root@172.16.1.50
+ # ssh -o "StrictHostKeyChecking no" root@172.16.1.51
+ # ssh -o "StrictHostKeyChecking no" root@172.16.1.52
+ # ssh -o "StrictHostKeyChecking no" root@172.16.1.53
+
+ ==Snapshot de Vagrant Pre-Instalacion==
+ C:\> vagrant snapshot save main-server Pre-Use
+ C:\> vagrant snapshot save server-a Pre-Use
+ C:\> vagrant snapshot save server-b Pre-Use
+ C:\> vagrant snapshot save server-c Pre-Use
+ C:\> vagrant snapshot list
+
+==Solo en caso de necesitar realizar un Restore==
+ C:\> vagrant snapshot restore main-server Pre-Use
+ C:\> vagrant snapshot restore server-a Pre-Use
+ C:\> vagrant snapshot restore server-b Pre-Use
+ C:\> vagrant snapshot restore server-c Pre-Use
