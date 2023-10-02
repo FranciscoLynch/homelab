@@ -1,15 +1,17 @@
-- hosts: servers 
-  become: yes
+- hosts: nodes 
+  serial: 1
   tasks:
   - name: ensure docker is installed
     apt:
       name: docker.io
       state: latest
-  
+      update_cache: yes
+      
   - name: ensure docker is installed
     apt:
       name: docker compose
       state: latest
+      update_cache: yes
 
   - name: Added user to docker group
     user:

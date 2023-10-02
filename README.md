@@ -78,14 +78,28 @@ Once it's ready (inside the /homelab)
 
 ```
 vagrant up 
-vagrant ssh main-server
+vagrant ssh (name of the vm)
 ```
 
 In case of being necessary >> *Password: vagrant*
 
+In case the main Vagrantfile throw some error, try using the one in the vagrantfile-b folder. 
+Is that the case, you have to comment the first seven lines in the /Ansible/myhosts and uncomment the next ones.
+
+
 #### Vagrant Cheat Sheet
 
 https://gist.github.com/devopsjourney1/7a5f21fddef564eb8c68dd7901d0f6be
+
+
+Once your are inside of the main-server (or *control* in case of using the second Vagrantfile) what you're going to do is stablish the communication between the servers.
+
+```
+ping server-a (or node1) # this should give you a temporary failure in name resolution
+cd /vagrant
+sudo cp hosts /etc/hosts
+ping server-a (or node1) # this should show you the bytes of data
+```
 
 ## 2. Servers configuration with Ansible 
 
@@ -101,12 +115,15 @@ ssh-copy-id server-a && ssh-copy-id server-b && ssh-copy-id server-c
 ```
 
 #### Test ansible
+
+If you are using the main Vagrantfile won't be problem, but if you're using the vagrantfile-b, you will have to create the file *myhosts* (the one inside /Ansible) inside of the /vagrant/ on the vm. Check it.
+
 ```
-ansible nodes -i myhosts -m command -a hostname
+ansible nodes -i myhosts -a hostname
 ```
 #### Install Python 
 ```
-ansible nodes -i myhosts -m command -a 'sudo apt-get -y install python-simplejson'
+ansible nodes -i myhosts -a 'sudo apt-get -y install python-simplejson'
 ```
 
 #### Run the playbook to install docker

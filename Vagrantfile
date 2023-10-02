@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
         h.vm.provision "shell", path: "provisioning.sh"
         h.vm.provider "virtualbox" do |vb|
           vb.name = "server-a-ubuntu-20.04LTS"
-	  vb.memory = "512"
+	        vb.memory = "512"
           vb.cpus = 1
         end    
     end  
@@ -28,7 +28,7 @@ Vagrant.configure("2") do |config|
         h.vm.provision "shell", path: "provisioning.sh"
         h.vm.provider "virtualbox" do |vb|
           vb.name = "server-b-ubuntu-20.04LTS"  
-	  vb.memory = "512"
+	        vb.memory = "512"
           vb.cpus = 1
         end    
     end  
