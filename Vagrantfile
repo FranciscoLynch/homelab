@@ -1,6 +1,6 @@
 Vagrant.configure("2") do |config|
     config.vm.define "main-server" do |h|
-        h.vm.box = "ubuntu/trusty64"
+        h.vm.box = "ubuntu/focal64"
         h.vm.hostname = "main-server"
         h.vm.network "private_network", ip: "192.168.56.50"
         h.vm.provision "shell", path: "provisioning.sh"
@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
         end  
     end  
     config.vm.define "server-a" do |h|
-        h.vm.box = "ubuntu/trusty64"
+        h.vm.box = "ubuntu/focal64"
         h.vm.hostname = "server-a"
         h.vm.network "private_network", ip: "192.168.56.51"
         h.vm.provision "shell", path: "provisioning.sh"
@@ -22,7 +22,7 @@ Vagrant.configure("2") do |config|
         end    
     end  
     config.vm.define "server-b" do |h|
-        h.vm.box = "ubuntu/trusty64"
+        h.vm.box = "ubuntu/focal64"
         h.vm.hostname = "server-b"
         h.vm.network "private_network", ip: "192.168.56.52"
         h.vm.provision "shell", path: "provisioning.sh"
@@ -33,7 +33,7 @@ Vagrant.configure("2") do |config|
         end    
     end  
     config.vm.define "server-c" do |h|
-        h.vm.box = "ubuntu/trusty64"
+        h.vm.box = "ubuntu/focal64"
         h.vm.hostname = "server-c"
         h.vm.network "private_network", ip: "192.168.56.53"
         h.vm.provision "shell", path: "provisioning.sh"
